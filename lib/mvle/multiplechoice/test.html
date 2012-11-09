@@ -1,0 +1,125 @@
+<html><head><base href="http://veritas.eecs.berkeley.edu/apcsa-ret/curriculum/unit0/lesson0_Welcome/">
+    	<script type="text/javascript" src="http://veritas.eecs.berkeley.edu/apcsa-ret/vle/events/eventmanager.js"></script>
+        <script type="text/javascript">
+        var mc; // global variable so it can be accessed by other functions
+        
+        function loadContentAfterScriptsLoad(node){
+        	mc = new MC(node);
+        	mc.render();
+        };
+
+		function loadContent(node){
+			scriptloader.loadScripts('multiplechoice', node.contentPanel.window.document, node.id, eventManager);
+		};
+        
+        function checkAnswer(){
+        	mc.checkAnswer();
+        };
+
+        function tryAgain(){
+        	var isTryAgainDisabled = hasClass("tryAgainButton", "disabledLink");
+                       
+        	if (isTryAgainDisabled) {
+        		return;
+        	}
+                   
+        	mc.render();
+        };
+
+        var newWin = null;
+        function popUp(strURL, strType, strHeight, strWidth) {
+         if (newWin != null && !newWin.closed)
+           newWin.close();
+         var strOptions="";
+         if (strType=="console")
+           strOptions="resizable,height="+
+             strHeight+",width="+strWidth;
+         if (strType=="fixed")
+           strOptions="status,height="+
+             strHeight+",width="+strWidth;
+         if (strType=="elastic")
+           strOptions="toolbar,menubar,scrollbars,"+
+             "resizable,location,height="+
+             strHeight+",width="+strWidth;
+         newWin = window.open(strURL, 'newWin', strOptions);
+         newWin.focus();
+        }
+        </script>
+    <script type="text/javascript" src="http://veritas.eecs.berkeley.edu/apcsa-ret/vle/util/keystrokemanager.js"></script><link rel="stylesheet" type="text/css" href="http://veritas.eecs.berkeley.edu/apcsa-ret/vle/node/common/css/htmlAssessment.css"><link rel="stylesheet" type="text/css" href="http://veritas.eecs.berkeley.edu/apcsa-ret/vle/node/multiplechoice/mcstyles.css"><script type="text/javascript" src="http://veritas.eecs.berkeley.edu/apcsa-ret/vle/node/common/nodehelpers.js"></script><script type="text/javascript" src="http://veritas.eecs.berkeley.edu/apcsa-ret/vle/common/helperfunctions.js"></script><script type="text/javascript" src="http://veritas.eecs.berkeley.edu/apcsa-ret/vle/jquery/js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="http://veritas.eecs.berkeley.edu/apcsa-ret/vle/node/multiplechoice/multiplechoicestate.js"></script><script type="text/javascript" src="http://veritas.eecs.berkeley.edu/apcsa-ret/vle/node/multiplechoice/challengestate.js"></script><script type="text/javascript" src="http://veritas.eecs.berkeley.edu/apcsa-ret/vle/node/multiplechoice/branchstate.js"></script><script type="text/javascript" src="http://veritas.eecs.berkeley.edu/apcsa-ret/vle/node/multiplechoice/mc.js"></script><script type="text/javascript" src="http://veritas.eecs.berkeley.edu/apcsa-ret/vle/jquery/js/jquery-ui-1.8.custom.min.js"></script><script type="text/javascript" src="http://veritas.eecs.berkeley.edu/apcsa-ret/vle/jquery/js/jsonplugin.js"></script></head>
+    <body>
+        <div id="centeredDiv">
+        <div id="questionCountBox" class="bg7">
+            <table class="instructionsReminder">
+                <tbody><tr>
+                    <td>
+                        <div id="helpIcon">
+                            <a href="http://veritas.eecs.berkeley.edu/apcsa-ret/vle/node/multiplechoice/MultipleChoiceInfoBox.html" onclick="popUp(this.href,'console',800,800);return false;" target="_blank">&nbsp;&nbsp;&nbsp;</a>
+                        </div>
+                    </td>
+                    <td>
+                        <a id="helpTextLink" href="http://veritas.eecs.berkeley.edu/apcsa-ret/vle/node/multiplechoice/MultipleChoiceInfoBox.html" onclick="popUp(this.href,'console',800,800);return false;" target="_blank">help</a>
+                    </td>
+                </tr>
+            </tbody></table>
+            <div id="previousWorkDiv"></div>
+            <div id="questionTable">
+                <div id="questionType">Multiple Choice</div>
+            </div>
+        </div>
+        <!-- end of questionCountBox -->
+        <div id="currentQuestionBox">
+            <div id="leftColumn" class="bg8">
+                <div class="itemLabel color1">
+                    question
+                </div>
+                <div id="promptDiv">
+          <span audio="1">Select the single best answer to the question.</span>
+          
+          <p audio="2" id="multichoice1" style="font-weight:bold">
+          How long does it take a typical home computer
+          to add two big numbers together?
+          </p>
+        </div>
+                <div class="itemLabel color1">
+                    answers
+                </div>
+                <div id="radiobuttondiv"><table><tbody><tr><td><input type="radio" name="radiobutton" id="choice1" value="choice1" class="radio"></td><td><div id="choicetext:choice1">
+          It can add them together about once a second.
+        </div></td><td><div id="feedback_choice1" name="feedbacks"></div></td></tr></tbody></table><table><tbody><tr><td><input type="radio" name="radiobutton" id="choice2" value="choice2" class="radio"></td><td><div id="choicetext:choice2">
+          It can add them together about 1,000 times a second.
+        </div></td><td><div id="feedback_choice2" name="feedbacks"></div></td></tr></tbody></table><table><tbody><tr><td><input type="radio" name="radiobutton" id="choice3" value="choice3" class="radio"></td><td><div id="choicetext:choice3">
+          It can add them together about 100,000,000 times a
+          second.
+        </div></td><td><div id="feedback_choice3" name="feedbacks"></div></td></tr></tbody></table><table><tbody><tr><td><input type="radio" name="radiobutton" id="choice4" value="choice4" class="radio"></td><td><div id="choicetext:choice4">
+          It adds numbers instantly.
+        </div></td><td><div id="feedback_choice4" name="feedbacks"></div></td></tr></tbody></table></div>
+                <div id="feedbackdiv"></div>
+            </div>
+            <div id="rightColumn" class="bg2">
+                <img src="http://veritas.eecs.berkeley.edu/apcsa-ret/vle/images/robots/multi_choice.png" alt="Robot Art Open Response" border="0">
+            </div>
+            <div id="clearBoth">
+            </div>
+            <div id="statusMessages">
+                <div id="numberAttemptsDiv">This is your 46th attempt.</div>
+                <div id="lastAttemptDiv">
+                </div>
+            </div>
+            <!-- Anchor-Based Button Layout using TABLE -->
+            <div id="buttonDiv">
+                <table id="buttonTable">
+                    <tbody><tr>
+                        <td>
+                            <a class="firstButton disabledLink" id="checkAnswerButton" onclick="javascript:checkAnswer();">Check Answer</a>
+                        </td>
+                        <td>
+                            <a id="tryAgainButton" onclick="javascript:tryAgain();" class="disabledLink">Try Again</a>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+        <!-- end centered Div -->
+    
+
+</div></body></html>
