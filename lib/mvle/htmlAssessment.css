@@ -106,7 +106,7 @@ p {
 #helpIcon {
 	width: 16px;
 	height: 16px;
-	background-image: url(../images/infoIcon.png);
+	background-image: url(images/infoIcon.png);
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	padding: 0;
@@ -118,7 +118,7 @@ p {
 }
 
 #helpIcon :hover {
-	background-image: url(../images/infoIconRollover.png);
+	background-image: url(images/infoIconRollover.png);
 }
 
 #helpTextLink {
@@ -224,7 +224,7 @@ p {
 }
 
 #infoBoxCenteredDiv, #assessmentTypeCenteredDiv {
-	background-image:url(../../../images/BackgroundBlue600.png);
+	background-image:url(images/BackgroundBlue600.png);
 	background-position:0 -400px;
 	background-repeat:repeat-x;
 	background-color:#FFF;
