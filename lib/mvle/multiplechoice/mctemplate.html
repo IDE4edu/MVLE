@@ -1,73 +1,71 @@
 <html>
-    <head>
-    	<script type="text/javascript" src="../jquery-1.8.2.min.js"> </script>
-        <script type="text/javascript"></script>
-    	
-    </head>
     <body>
         <div id="centeredDiv">
-        <div id="questionCountBox" class="bg7">
-            <table class="instructionsReminder">
-                <tr>
-                    <td>
-                        <div id="helpIcon">
-                            <a href="MultipleChoiceInfoBox.html" onclick="popUp(this.href,'console',800,800);return false;" target="_blank">&nbsp;&nbsp;&nbsp;</a>
-                        </div>
-                    </td>
-                    <td>
-                        <a id="helpTextLink" href="MultipleChoiceInfoBox.html" onclick="popUp(this.href,'console',800,800);return false;" target="_blank">help</a>
-                    </td>
-                </tr>
-            </table>
-            <div id='previousWorkDiv'></div>
-            <div id="questionTable">
-                <div id="questionType">
-                    Multiple Choice
-                </div>
-            </div>
-        </div>
-        <!-- end of questionCountBox -->
-        <div id="currentQuestionBox">
-            <div id="leftColumn" class="bg8">
-                <div id="questionLabelDiv" class="itemLabel color1">
-                    question
-                </div>
-                <div id="promptDiv">
-                    Prompt goes here. This text will automatically be replaced by actual prompt.
-                </div>
-                <div id="answersLabelDiv" class="itemLabel color1">
-                    answers
-                </div>
-                <div id="radiobuttondiv">
-                </div>
-                <div id="feedbackdiv">&nbsp</div>
-            </div>
-            <div id="rightColumn" class="bg2">
-                <img src="images/multi_choice.png" alt="Robot Art Open Response"  border="0" />
-            </div>
-            <div id="clearBoth">
-            </div>
-            <div id="statusMessages">
-                <div id="numberAttemptsDiv">&nbsp</div>
-                <div id="scoreDiv">&nbsp</div>
-                <div id="resultMessageDiv" style="font-size:16px">&nbsp</div>
-            </div>
-            <!-- Anchor-Based Button Layout using TABLE -->
-            <div id="buttonDiv">
-                <table id="buttonTable">
+            <div id="questionCountBox" class="bg7">
+                <table class="instructionsReminder">
                     <tr>
                         <td>
-                            <div class="buttonDiv ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
-                            	<a class="firstButton" id="checkAnswerButton" onClick="javascript:checkAnswer();">Check Answer</a>
+                            <div id="helpIcon">
+                                <!-- onclick="popUp(this.href,'console',800,800);return false;" -->
+                                <a href="MultipleChoiceInfoBox.html" target="_blank">&nbsp;&nbsp;&nbsp;</a>
                             </div>
                         </td>
                         <td>
-                            <div class="buttonDiv ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
-                            	<a id="tryAgainButton" onClick="javascript:tryAgain();" class="disabledLink">Try Again</a>
-                            </div>
+                            <!-- onclick="popUp(this.href,'console',800,800);return false;" -->
+                            <a id="helpTextLink" href="MultipleChoiceInfoBox.html" target="_blank">help</a>
                         </td>
                     </tr>
                 </table>
+                <div id="previousWorkDiv"></div>
+                <div id="questionTable">
+                    <div id="questionType">
+                        Multiple Choice
+                    </div>
+                </div>
+            </div>
+            <!-- end of questionCountBox -->
+            <div id="currentQuestionBox">
+                <div id="leftColumn" class="bg8">
+                    <div id="questionLabelDiv" class="itemLabel color1">
+                        question
+                    </div>
+                    <div id="promptDiv">
+                        Prompt goes here. This text will automatically be replaced by actual prompt.
+                    </div>
+                    <div id="answersLabelDiv" class="itemLabel color1">
+                        answers
+                    </div>
+                    <div id="radiobuttondiv">
+                    </div>
+                    <div id="feedbackdiv">&nbsp;</div>
+                </div>
+                <div id="rightColumn" class="bg2">
+                    <img src="images/multi_choice.png" alt="Robot Art Open Response"  border="0" />
+                </div>
+                <div id="clearBoth">
+                </div>
+                <div id="statusMessages">
+                    <div id="numberAttemptsDiv">&nbsp;</div>
+                    <div id="scoreDiv">&nbsp;</div>
+                    <div id="resultMessageDiv" style="font-size:16px">&nbsp;</div>
+                </div>
+                <!-- Anchor-Based Button Layout using TABLE -->
+                <div id="buttonDiv">
+                    <table id="buttonTable">
+                        <tr>
+                            <td>
+                                <div class="buttonDiv ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+                                    <a class="firstButton" id="checkAnswerButton" onClick="javascript:checkAnswer();">Check Answer</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="buttonDiv ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+                                    <a id="tryAgainButton" onClick="javascript:tryAgain();" class="disabledLink">Try Again</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
         <!-- end centered Div -->
