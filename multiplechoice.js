@@ -7,13 +7,7 @@ $(document).ready(function() {
 
 });
 
-/**
- * @constructor
- * @param node
- * @param view
- * @returns
- */
-function MC(node, view) {
+function MC() {
     this.content = {};
     this.properties = {};
     this.correctResponse = [];
@@ -49,7 +43,7 @@ MC.prototype.loadContent = function() {
 
 //gets and returns a choice object given the choice's identifier
 MC.prototype.getChoiceByIdentifier = function(identifier) {
-	for (var i=0;i<this.choices.length;i++) {
+	for (var i = 0; i < this.choices.length; i++) {
 		if (this.removeSpace(this.choices[i].identifier) == identifier) {
 			return this.choices[i];
 		};
@@ -118,7 +112,7 @@ MC.prototype.render = function() {
 	}
 
 	/* render the choices */
-	for(var i=0;i<this.choices.length;i++) {
+	for(var i = 0; i < this.choices.length; i++) {
 		var choiceHTML = '<table><tbody><tr><td><input type="' + type + '" name="radiobutton" id="' + this.removeSpace(this.choices[i].identifier) +
 			'" value="' + this.removeSpace(this.choices[i].identifier) + '" class="' + type + '"/></td><td><div id="choicetext:' + this.removeSpace(this.choices[i].identifier) +
 			'">' + this.choices[i].text + '</div></td><td><div id="feedback_' + this.removeSpace(this.choices[i].identifier) + '" name="feedbacks"></div></td></tr></tbody></table>';
@@ -375,9 +369,9 @@ MC.prototype.removeSpace = function(text){
  */
 function enableCheckAnswerButton(doEnable) {
 	if (doEnable == 'true') {
-		$('#checkAnswerButton').parent().removeClass('disabledLink'); // disable checkAnswerButton
+		$('#checkAnswerButton').removeClass('disabledLink'); // disable checkAnswerButton
 	} else {
-		$('#tryAgainButton').parent().addClass('disabledLink'); // disable checkAnswerButton
+		$('#tryAgainButton').addClass('disabledLink'); // disable checkAnswerButton
 	}
 };
 
@@ -409,4 +403,4 @@ function clearFeedbackDiv() {
 	};
 };
 
-var pageTemplate = '<div id="centeredDiv"> <div id="questionCountBox" class="bg7"> <div id="previousWorkDiv"></div> <div id="questionTable"> <div id="questionType"> Multiple Choice </div> </div> </div> <!-- end of questionCountBox --> <div id="currentQuestionBox"> <div id="leftColumn" class="bg8"> <div id="questionLabelDiv" class="itemLabel color1"> question </div> <div id="promptDiv"> Prompt goes here. This text will automatically be replaced by actual prompt.  </div> <div id="answersLabelDiv" class="itemLabel color1"> answers </div> <div id="radiobuttondiv"> </div> <div id="feedbackdiv">&nbsp;</div> </div> <div id="rightColumn" class="bg2"> <img src="images/multi_choice.png" alt="Robot Art Open Response"  border="0" /> </div> <div id="clearBoth"> </div> <div id="statusMessages"> <div id="numberAttemptsDiv">&nbsp;</div> <div id="scoreDiv">&nbsp;</div> <div id="resultMessageDiv" style="font-size:16px">&nbsp;</div> </div> <!-- Anchor-Based Button Layout using TABLE --> <div id="buttonDiv"> <table id="buttonTable"> <tr> <td> <div class="buttonDiv ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"> <a class="firstButton" id="checkAnswerButton" href="#" onclick="mc.checkAnswer();">Check Answer</a> </div> </td> <td> <div class="buttonDiv ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"> <a id="tryAgainButton" class="disabledLink" href="#" onclick="mc.tryAgain();">Try Again</a> </div> </td> </tr> </table> </div> </div> </div> ';
+var pageTemplate = '<div id="centeredDiv"> <div id="questionCountBox" class="bg7"> <div id="previousWorkDiv"></div> <div id="questionTable"> <div id="questionType"> Multiple Choice </div> </div> </div> <!-- end of questionCountBox --> <div id="currentQuestionBox"> <div id="leftColumn" class="bg8"> <div id="questionLabelDiv" class="itemLabel color1"> question </div> <div id="promptDiv"> Prompt goes here. This text will automatically be replaced by actual prompt.  </div> <div id="answersLabelDiv" class="itemLabel color1"> answers </div> <div id="radiobuttondiv"> </div> <div id="feedbackdiv">&nbsp;</div> </div> <div id="rightColumn" class="bg2"> <img src="mvle/images/multi_choice.png" alt="Robot Art Open Response"  border="0" /> </div> <div id="clearBoth"> </div> <div id="statusMessages"> <div id="numberAttemptsDiv">&nbsp;</div> <div id="scoreDiv">&nbsp;</div> <div id="resultMessageDiv" style="font-size:16px">&nbsp;</div> </div> <!-- Anchor-Based Button Layout using TABLE --> <div id="buttonDiv"> <table id="buttonTable"> <tr> <td> <div class="buttonDiv ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"> <a class="disabledLink" id="checkAnswerButton" href="#" onclick="mc.checkAnswer();">Check Answer</a> </div> </td> <td> <div class="buttonDiv ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"> <a id="tryAgainButton" class="disabledLink" href="#" onclick="mc.tryAgain();">Try Again</a> </div> </td> </tr> </table> </div> </div> </div> ';
