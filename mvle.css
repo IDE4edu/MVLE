@@ -82,9 +82,8 @@ p {
 
 
 #centeredDiv {
-	background-color: #FFFFFF;
 	text-align: left;
-	padding: 0;
+	padding: 1%;
 	margin: 0 auto;
 }
 
@@ -100,7 +99,6 @@ p {
 	font-size: .8em;
 	text-transform: uppercase;
 	padding: 5px 15px;
-	color: #000;
 }
 
 #helpIcon {
@@ -377,22 +375,22 @@ p {
 }
 
 #currentQuestionBox #leftColumn {
-	float: left;
-	width: 85%;
-	padding: 10px 0;
-	min-height:400px;
+    float: left;
+    width: 85%;
+    padding: 10px 0;
+    min-height: 300px;
 }
 
 #currentQuestionBox #rightColumn {
-	margin-left: 86%;
-	padding: 10px 0;
-	text-align: center;
-	color: #FFF;
-	min-height:400px;
+    float: right;
+    width: 14%;
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+    min-height: 300px;
 }
 
 #currentQuestionBox #rightColumn img {
-	margin: 40px 0 0 0;
 
 }
 
@@ -527,4 +525,8 @@ input * {
 
 #buttonTable {
 	margin-top:10px;
+}
+
+#buttonDiv {
+    min-height: 31px;
 }
