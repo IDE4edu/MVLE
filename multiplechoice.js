@@ -20,6 +20,11 @@ function MC() {
 };
 
 MC.prototype.loadContent = function() {
+
+    // get the list of choices and related information
+
+    // copy a reference to the instance variable array to use
+    // within the callback function
     var choices = this.choices;
     $('.choice').each(function() {
         var elem = $(this);
@@ -31,13 +36,22 @@ MC.prototype.loadContent = function() {
         choices.push(choice);
     });
 
+    // get user interaction information
     this.content.prompt = $('.prompt').html();
     this.properties.shuffle = $('#interaction').attr('shuffle');
     this.properties.maxChoices = $('#interaction').attr('maxchoices');
+
+    // get the list of correct responses
     var corrResponses = $('.correctResponse')
     for(var i = 0; i != corrResponses.length; i++){
         this.correctResponse.push($(corrResponses[i]).attr('identifier'));
     }
+
+    // set the page title and dispose the div
+    document.title = $(".title").html();
+    $(".title").remove();
+
+
 };
 
 
@@ -70,7 +84,6 @@ MC.prototype.tryAgain = function(e) {
     if ($("#tryAgainButton").hasClass("disabledLink")) {
         return;
     }
-	$('#checkAnswerButton').removeClass('disabledLink'); // disable checkAnswerButton
     mc.render();
 };
 
@@ -81,7 +94,7 @@ MC.prototype.render = function() {
     if(!this.previouslyRendered) {
         // insert the basic page template
         // this should get changed to only remove the mc
-        $('body').html(pageTemplate);
+        $('.MultipleChoice').html(pageTemplate);
 
         /* set the question type title */
         $('#questionType').html('Multiple Choice');
@@ -403,4 +416,4 @@ function clearFeedbackDiv() {
 	};
 };
 
-var pageTemplate = '<div id="centeredDiv"> <div id="questionCountBox" class="bg7"> <div id="previousWorkDiv"></div> <div id="questionTable"> <div id="questionType"> Multiple Choice </div> </div> </div> <!-- end of questionCountBox --> <div id="currentQuestionBox"> <div id="leftColumn" class="bg8"> <div id="questionLabelDiv" class="itemLabel color1"> question </div> <div id="promptDiv"> Prompt goes here. This text will automatically be replaced by actual prompt.  </div> <div id="answersLabelDiv" class="itemLabel color1"> answers </div> <div id="radiobuttondiv"> </div> <div id="feedbackdiv">&nbsp;</div> </div> <div id="rightColumn" class="bg2"> <img src="mvle/images/multi_choice.png" alt="Robot Art Open Response"  border="0" /> </div> <div id="clearBoth"> </div> <div id="statusMessages"> <div id="numberAttemptsDiv">&nbsp;</div> <div id="scoreDiv">&nbsp;</div> <div id="resultMessageDiv" style="font-size:16px">&nbsp;</div> </div> <!-- Anchor-Based Button Layout using TABLE --> <div id="buttonDiv"> <table id="buttonTable"> <tr> <td> <div class="buttonDiv ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"> <a class="disabledLink" id="checkAnswerButton" href="#" onclick="mc.checkAnswer();">Check Answer</a> </div> </td> <td> <div class="buttonDiv ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"> <a id="tryAgainButton" class="disabledLink" href="#" onclick="mc.tryAgain();">Try Again</a> </div> </td> </tr> </table> </div> </div> </div> ';
+var pageTemplate = '<div id="centeredDiv"> <div id="questionCountBox" class="bg7"> <div id="previousWorkDiv"></div> <div id="questionTable"> <div id="questionType"> Multiple Choice </div> </div> </div> <!-- end of questionCountBox --> <div id="currentQuestionBox"> <div id="leftColumn" class="bg8"> <div id="questionLabelDiv" class="itemLabel color1"> question </div> <div id="promptDiv"> Prompt goes here. This text will automatically be replaced by actual prompt.  </div> <div id="answersLabelDiv" class="itemLabel color1"> answers </div> <div id="radiobuttondiv"> </div> <div id="feedbackdiv">&nbsp;</div> </div> <div id="rightColumn" class="bg2"> <img src="../MVLE/images/multi_choice.png" alt="Robot Art Open Response"  border="0" /> </div> <div id="clearBoth"> </div> <div id="statusMessages"> <div id="numberAttemptsDiv">&nbsp;</div> <div id="scoreDiv">&nbsp;</div> <div id="resultMessageDiv" style="font-size:16px">&nbsp;</div> </div> <!-- Anchor-Based Button Layout using TABLE --> <div id="buttonDiv"> <table id="buttonTable"> <tr> <td> <div class="buttonDiv ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"> <a class="disabledLink" id="checkAnswerButton" href="#" onclick="mc.checkAnswer();">Check Answer</a> </div> </td> <td> <div class="buttonDiv ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"> <a id="tryAgainButton" class="disabledLink" href="#" onclick="mc.tryAgain();">Try Again</a> </div> </td> </tr> </table> </div> </div> </div> ';
